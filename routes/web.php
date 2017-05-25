@@ -13,6 +13,8 @@
 Route::get('/', 'HomeController@index');
 Route::get('login', 'HomeController@login');
 Route::get('register', 'HomeController@register');
+Route::post('register/post', 'HomeController@registerUser');
+Route::post('login/post', 'HomeController@loginUser');
 Route::get('laravel', function () {
     return view('welcome');
 });
@@ -30,8 +32,5 @@ Route::get('stunt', function () {
 
 	user->save();
 	 */
-
 	return "Check the database, I think someone was created";
 });
-//Route::resource('user', 'UserController');
-//Route::get('user/index', 'App\Http\Controllers\UserController@index');

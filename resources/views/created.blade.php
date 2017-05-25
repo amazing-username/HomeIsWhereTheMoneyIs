@@ -13,23 +13,8 @@
 	</head>
 	<body style="background-color:#eee">
 		<div class="jumbotron text-center">
-			<h1>Login Page</h1>
+			<h1>Alright {{ $username }}, your account has been created</h1>
 			<a href="/"><h1>Home</h1></a>
-
-			{{ Form::open(array('action' => 'HomeController@loginUser')) }}
-			<p>
-				{{ Form::label("username") }}
-				{{ Form::text("username") }}
-			</p>	
-			<p>
-				{{ Form::label("password") }}
-				{{ Form::password("password") }}
-			</p>
-			<p>
-				{{ Form::submit("Login maxipad resident") }}
-			</p>
-			{{ Form::close() }}
-			<h1>{{ $message }}</h1>
-		</div>		 
+		</div>		
 	</body>
 </html>
