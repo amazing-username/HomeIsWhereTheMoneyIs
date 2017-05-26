@@ -72,4 +72,8 @@ class HomeController extends Controller
 			return view('userhome', ['username' => $username]);	
 		}
 	}
+	public function home(Request $stuff)
+	{
+		return view('userhome', ['username' => $stuff->input('username')]);
+	}
 }

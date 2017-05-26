@@ -15,6 +15,11 @@ Route::get('login', 'HomeController@login');
 Route::get('register', 'HomeController@register');
 Route::post('register/post', 'HomeController@registerUser');
 Route::post('login/post', 'HomeController@loginUser');
+Route::post('userhome/maxipad', 'HomeController@home');
+Route::post('userhome/maxipad/create', 'BillController@create');
+Route::post('userhome/maxipad/create/done', 'BillController@createbill');
+Route::post('userhome/maxiad/manage', 'BillController@manage');
+Route::post('userhome/maxipad/view', 'BillController@view');
 Route::get('laravel', function () {
     return view('welcome');
 });
@@ -22,15 +27,5 @@ Route::get('hotboy', function () {
 	return 'I\'m iced up, ugly corner where we\'re from we don\'t really like ya';
 });
 Route::get('stunt', function () {
-	/**
-	$user = new User;
-
-	user->firstname = "John";
-	user->lastname = "Doe";
-	user->username = "Bigboy69420";
-	user->password = "Swish";
-
-	user->save();
-	 */
 	return "Check the database, I think someone was created";
 });

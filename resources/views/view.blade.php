@@ -9,41 +9,33 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<style type="text/css">	
-		.test
-{
-height: 30%;
-}
-		.test2 {
-			height:50%;
-		}
-	</style>
+	
 	</head>
 	<body style="background-color:#eee">
 		<div class="jumbotron text-center">
-			<h1>What's good {{$username}}? it's your home page</h1>	
-			<br>
-
-			{!! Form::open(array('action' => 'BillController@create')) !!}
+			<h1>Alright {{ $username }}, here is where you can view bills that you need to pay...</h1>
+			{!! Form::open(array('action' => 'HomeController@home')) !!}
 
 			{{ Form::hidden('username', $username) }}
 			<p>
-			{{ Form::button('create', array('style' => 'height:40%;width:70%', 'type' => 'submit')) }}
+			{{ Form::button('user Home', array('style' => 'height:40%;width:70%', 'type' => 'submit')) }}
 			</p>
 			{!! Form::close() !!}
 
-			{!! Form::open(array('action' => 'BillController@manage')) !!}
-
+			{!! Form::open(array('action' => 'BillController@createbill')) !!}
 			{{ Form::hidden('username', $username) }}
 			<p>
-			{{ Form::button('mange', array('style' => 'height:40%;width:70%', 'type' => 'submit')) }}
 			</p>
-			{!! Form::close() !!}
-			{!! Form::open(array('action' => 'BillController@view')) !!}
-
-			{{ Form::hidden('username', $username) }}
+			<ul>
+				@foreach ($billrecord as $bill)
+					<li>{{{ $bill->billname }}}<li>
+				@endforeach
+			</ul>
 			<p>
-			{{ Form::button('view', array('style' => 'height:40%;width:70%', 'type' => 'submit')) }}
+				{{ Form::text('billname', '', array('style' => 'height:40%;width:70%')) }}
+			</p>
+			<p>
+			{{ Form::button('Create Bill', array('style' => 'height:40%;width:70%', 'type' => 'submit')) }}
 			</p>
 			{!! Form::close() !!}
 		</div>		
