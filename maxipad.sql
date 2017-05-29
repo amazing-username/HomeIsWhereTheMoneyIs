@@ -34,7 +34,7 @@ CREATE TABLE `bills` (
 
 LOCK TABLES `bills` WRITE;
 /*!40000 ALTER TABLE `bills` DISABLE KEYS */;
-INSERT INTO `bills` VALUES ('Fish','juice'),('Buthole','juice');
+INSERT INTO `bills` VALUES ('Fish','juice'),('Buthole','juice'),('car','juice');
 /*!40000 ALTER TABLE `bills` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -85,6 +85,60 @@ LOCK TABLES `migrations` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `responsible`
+--
+
+DROP TABLE IF EXISTS `responsible`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `responsible` (
+  `id` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `billname` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `username` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `amountpaid` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `total` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `owner` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `responsible`
+--
+
+LOCK TABLES `responsible` WRITE;
+/*!40000 ALTER TABLE `responsible` DISABLE KEYS */;
+INSERT INTO `responsible` VALUES (NULL,NULL,'ice',NULL,NULL,NULL),('201705Fish','Fish','weezybaby','6','10','juice'),('201705Fish','Fish','weezybaby','6','10','juice'),('201705Fish','Fish','weezybaby','6','10','juice'),('201705Fish','Fish','weezybaby','6','10','juice'),('201705Fish','Fish','bbc_champ','6','10','juice');
+/*!40000 ALTER TABLE `responsible` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `transactions`
+--
+
+DROP TABLE IF EXISTS `transactions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `transactions` (
+  `billname` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `date` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `cost` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `responsible` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `username` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `people` varchar(2) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `transactions`
+--
+
+LOCK TABLES `transactions` WRITE;
+/*!40000 ALTER TABLE `transactions` DISABLE KEYS */;
+INSERT INTO `transactions` VALUES ('Fish','201705','30','201705Fish','juice','3'),('car','201705','400','201705car','juice','2'),('car','201705','400','201705car','juice','2');
+/*!40000 ALTER TABLE `transactions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `users`
 --
 
@@ -92,13 +146,11 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
-  `firstname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `lastname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `firstname` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `lastname` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `username` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `room` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -108,7 +160,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('Jake','Johnson','juice','grass',NULL,NULL,NULL);
+INSERT INTO `users` VALUES ('Jake','Johnson','juice','grass','Single'),('Dwayne','Carter','weezybaby','fireman','single'),('Bob','The Builder','cantfix','fatone','double'),('Jessica','Bangkok','bbc_champ','wife','double');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -121,4 +173,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-27 18:38:11
+-- Dump completed on 2017-05-29 19:19:42
