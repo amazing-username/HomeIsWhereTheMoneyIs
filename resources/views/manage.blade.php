@@ -44,6 +44,7 @@
 			</p>
 			{!! Form::close() !!}
 			<h1>{{ $message }}</h1>
+
 			<div>
 				<br><br>
 				<h1>Add people to the bill</h1>
@@ -128,7 +129,7 @@
 					{{ Form::button('check', array('style' => '', 'type' => 'submit')) }}
 				</p>
 				{!! Form::close() !!}
-				{{ $empt = isset($payer[0]) }}
+				{{ $empt = isset($payer) }}
 				@if (!$empt)
 					nothing
 				@endif

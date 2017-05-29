@@ -34,7 +34,7 @@ CREATE TABLE `bills` (
 
 LOCK TABLES `bills` WRITE;
 /*!40000 ALTER TABLE `bills` DISABLE KEYS */;
-INSERT INTO `bills` VALUES ('Fish','juice'),('Buthole','juice'),('car','juice');
+INSERT INTO `bills` VALUES ('Fish','juice'),('Buthole','juice'),('car','juice'),('Beef','weezybaby'),('Ink','weezybaby'),('Pepsi','weezybaby');
 /*!40000 ALTER TABLE `bills` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -107,7 +107,7 @@ CREATE TABLE `responsible` (
 
 LOCK TABLES `responsible` WRITE;
 /*!40000 ALTER TABLE `responsible` DISABLE KEYS */;
-INSERT INTO `responsible` VALUES (NULL,NULL,'ice',NULL,NULL,NULL),('201705Fish','Fish','weezybaby','6','10','juice'),('201705Fish','Fish','weezybaby','6','10','juice'),('201705Fish','Fish','weezybaby','6','10','juice'),('201705Fish','Fish','weezybaby','6','10','juice'),('201705Fish','Fish','bbc_champ','6','10','juice');
+INSERT INTO `responsible` VALUES (NULL,NULL,'ice',NULL,NULL,NULL),('201705Fish','Fish','weezybaby','6','10','juice'),('201705Fish','Fish','weezybaby','6','10','juice'),('201705Fish','Fish','weezybaby','6','10','juice'),('201705Fish','Fish','weezybaby','6','10','juice'),('201705Fish','Fish','bbc_champ','6','10','juice'),('201705Pepsi','Pepsi','juice','16','20','weezybaby');
 /*!40000 ALTER TABLE `responsible` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -134,7 +134,7 @@ CREATE TABLE `transactions` (
 
 LOCK TABLES `transactions` WRITE;
 /*!40000 ALTER TABLE `transactions` DISABLE KEYS */;
-INSERT INTO `transactions` VALUES ('Fish','201705','30','201705Fish','juice','3'),('car','201705','400','201705car','juice','2'),('car','201705','400','201705car','juice','2');
+INSERT INTO `transactions` VALUES ('Fish','201705','30','201705Fish','juice','3'),('car','201705','400','201705car','juice','2'),('car','201705','400','201705car','juice','2'),('Beef','201705','30','201705Beef','weezybaby','5'),('Ink','201705','87','201705Ink','weezybaby','3'),('Pepsi','201705','100','201705Pepsi','weezybaby','5');
 /*!40000 ALTER TABLE `transactions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -173,4 +173,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-29 19:19:42
+-- Dump completed on 2017-05-29 22:30:58
