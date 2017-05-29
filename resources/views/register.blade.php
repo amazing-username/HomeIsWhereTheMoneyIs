@@ -41,6 +41,10 @@
 					{{ Form::password('confirm') }}
 				</p>
 				<p>
+					{{ Form::label('roomlabel') }}
+					{{ Form::select('room', array('single' => 'single', 'double' => 'double')) }}
+				</p>
+				<p>
 					{{ Form::submit('register me') }}	
 				</p>
 			{{ Form::close() }}

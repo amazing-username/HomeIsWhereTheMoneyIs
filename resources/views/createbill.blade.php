@@ -18,7 +18,7 @@
 
 			{{ Form::hidden('username', $username) }}
 			<p>
-			{{ Form::button('user Home', array('style' => 'height:40%;width:70%', 'type' => 'submit')) }}
+			{{ Form::button('userHome', array('style' => 'height:40%;width:70%', 'type' => 'submit')) }}
 			</p>
 			{!! Form::close() !!}
 
@@ -26,6 +26,8 @@
 			{{ Form::hidden('username', $username) }}
 			<p>
 				{{ Form::label('lbl', 'bill name', array('style' => 'font-size:400%')) }}
+			</p>
+			<p>
 				{{ Form::text('billname', '', array('style' => 'font-size:400%')) }}
 			</p>
 			<p>

@@ -19,7 +19,12 @@ Route::post('userhome/maxipad', 'HomeController@home');
 Route::post('userhome/maxipad/create', 'BillController@create');
 Route::post('userhome/maxipad/create/done', 'BillController@createbill');
 Route::post('userhome/maxiad/manage', 'BillController@manage');
+Route::post('userhome/maxipad/managebill', 'BillController@managebill');
+Route::post('userhome/maxipad/managebilluser', 'BillController@addpeople');
+Route::post('userhome/maxipad/yup/managebilluser', 'BillController@calcbill');
+Route::post('userhome/maxipad/gasmaskgrasp/manage', 'BillController@debt');
 Route::post('userhome/maxipad/view', 'BillController@view');
+Route::post('userhome/maxi[ad/viewbill', 'BillController@viewbill');
 Route::get('laravel', function () {
     return view('welcome');
 });

@@ -26,6 +26,8 @@ class HomeController extends Controller
 		$username = $stuff->input('username');
 		$password = $stuff->input('password');
 		$confirm = $stuff->input('confirm');
+		$room = $stuff->input('room');
+		echo "room: " . $room . "<br>";
 
 		$emptfirstname = isset($firstname);
 		$emptlastname = isset($lastname);
@@ -42,7 +44,7 @@ class HomeController extends Controller
 			return view('register', ['message' => 'Password and confirm must be the same']);
 		}
 		DB::table('users')->insert(
-			['firstname' => $firstname, 'lastname' => $lastname, 'username' => $username, 'password' => $password]
+			['firstname' => $firstname, 'lastname' => $lastname, 'username' => $username, 'password' => $password, 'room' => $room]
 		);
 		return view('created', ['username' => $username]);
 	}

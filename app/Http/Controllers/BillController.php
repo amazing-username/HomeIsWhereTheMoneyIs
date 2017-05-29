@@ -27,24 +27,140 @@ class BillController extends Controller
 	}
 	public function manage(Request $stuff)
 	{
-		return view('manage', ['username' => $stuff->input('username')]);
+		$test = DB::table('bills')->where('username', 'juice')->pluck('billname');
+		$users = DB::table('users')->pluck('username');
+		$responsibleid = DB::table('responsible')->where('owner', $stuff->input('username'))->pluck('id');
+		foreach ($test as $gus) {
+			echo $gus . " " . $responsibleid[0];
+			echo "<br>";
+		}
+		//return view('manage', ['username' => $stuff->input('username'), 'message' => ''])->with('test', $test);
+		return view('manage', ['username' => $stuff->input('username'), 'message' => ""])->with('test', $test)->with('users', $users)->with('payer', '')->with('bills', '')->with('amountpaids', '')->with('totals', '')->with('responsibleid', $responsibleid)->with('count', '');
+	}
+	public function managebill(Request $stuff)
+	{
+		$test = DB::table('bills')->where('username', 'juice')->pluck('billname');
+		$users = DB::table('users')->pluck('username');
+		$username = $stuff->input('username');
+		$billname = $stuff->input('billname');
+		$date = $stuff->input('date');
+		$total = $stuff->input('total');
+		$each = $stuff->input('each');
+		$responsibleid = DB::table('responsible')->where('owner', $stuff->input('username'))->pluck('id');
+
+
+		$emptdate = isset($date);
+		$empttotal = isset($total);
+		$empteach = isset($each);
+
+		if (!$emptdate | !$empttotal | !$empteach)
+		{
+			//return view('manage', ['username' => $username, 'message' => "Remeber to fill in all of the fields"])->with('test', $test);
+			return view('manage', ['username' => $username, 'message' => "Remeber to fill in all of the fields"])->with('test', $test)->with('users', $users)->with('payer', '')->with('bills', '')->with('amountpaids', '')->with('totals', '')->with('responsibleid', $responsibleid)->with('count', '');
+		}
+		else
+		{
+			$responsibleid = $date . $billname;
+			DB::table('transactions')->insert([
+				'billname' => $billname, 'date' => $date, 'cost' => $total, 'responsible' => $responsibleid, 'username' => $username, 'people' => $each
+			]);
+			//return view('manage', ['username' => $username, 'message' => "The bill has been posted for others to see"])->with('test', $test);
+			return view('manage', ['username' => $username, 'message' => "The bill has been posted for others to see"])->with('test', $test)->with('users', $users)->with('payer', '')->with('bills', '')->with('amountpaids', '')->with('totals', '')->with('responsibleid', $responsibleid)->with('count','');
+		}
+	}
+	public function addpeople(Request $stuff)
+	{
+		$test = DB::table('bills')->where('username', 'juice')->pluck('billname');
+		$users = DB::table('users')->pluck('username');
+		//$id = DB::table('transactions')->where('username', $stuff->input('username'))->pluck('id');
+		$date = $stuff->input('date');
+		$username = $stuff->input('username');
+		$billname = $stuff->input('billname');
+		$payer = $stuff->input('payer');
+		$amountpaid = $stuff->input('amountpaid');
+		$responsibleid = DB::table('responsible')->where('owner', $stuff->input('username'))->pluck('id');
+		$count = $amountpaids->count();
+		$num = '0';
+		echo ++$num;
+		echo "All users" . "<br>";
+		foreach ($users as $groov)
+		{
+			echo $groov . "<br>";
+		}
+		if ($billname !== "Rent" | $billname !== "rent")
+		{
+			echo "Not equal" . "<br>";
+			$id = $date . $billname;
+			$cost = DB::table('transactions')->where('responsible', $id)->pluck('cost')->first();
+			$people = DB::table('transactions')->where('responsible', $id)->pluck('people')->first();
+			$full = ($cost * 100) / ($people * 100);
+			$full = $full . "";
+			echo $id . $billname . $payer . $amountpaid . $full . $username;
+			DB::table('responsible')->insert(
+				['id' => $id, 'billname' => $billname, 'username' => $payer, 'amountpaid' => $amountpaid, 'total' => $full, 'owner' => $username]
+			);
+		}
+		else
+		{
+			echo "It's the rent bill" . "<br>";
+			$id = $date . $billname;
+			$cost = DB::table('transactions')->where('responsible', $id)->pluck('cost')->first();
+			$roomtype = DB::table('users')->where('username', $payer)->pluck('room')->first();
+			if ($roomtype === 'Single' | $roomtype === 'single')
+			{
+				DB::table('responsible')->insert(
+					['id' => $id, 'billname' => $billname, 'username' => $payer, 'amountpaid' => $amountpaid, 'total' => '292', 'owner' => $username]);
+			}
+			else
+			{
+				DB::table('responsible')->insert(	
+					['id' => $id, 'billname' => $billname, 'username' => $payer, 'amountpaid' => $amountpaid, 'total' => '262', 'owner' => $username]);
+			}
+		}
+	
+		return view('manage', ['username' => $username, 'message' => $payer . " has been added to the bill"])->with('test', $test)->with('users', $users)->with('payer', '')->with('bills', '')->with('amountpaids', '')->with('totals', '')->with('responsibleid', $responsibleid)->with('count', $count);
+	}
+	public function calcbill(Request $stuff)
+	{
+		$test = DB::table('bills')->where('username', 'juice')->pluck('billname');
+		$users = DB::table('users')->pluck('username');
+		$payer = $stuff->input('payer');
+		$bills = DB::table('responsible')->where('username', $payer)->pluck('billname');
+		$amountpaids = DB::table('responsible')->where('username', $payer)->pluck('amountpaid');
+		$totals = DB::table('responsible')->where('username', $payer)->pluck('total');
+		$responsibleid = DB::table('responsible')->where('owner', $stuff->input('username'))->pluck('id');
+		$count = $amountpaids->count();
+
+		DB::table('responsible')->where('id', $responsibleid)->update(['amountpaid' => $stuff->input('amountpaid')]);
+
+		return view('manage', ['username' => $stuff->input('username'), 'message' => ''])->with('test', $test)->with('users', $users)->with('payer', $payer)->with('bills', $bills)->with('amountpaids', $amountpaids)->with('totals', $totals)->with('responsibleid', $responsibleid)->with('count', $count);
+	}
+	public function debt(Request $stuff)
+	{
+		$test = DB::table('bills')->where('username', 'juice')->pluck('billname');
+		$users = DB::table('users')->pluck('username');
+		$payer = $stuff->input('payer');
+		$bills = DB::table('responsible')->where('username', $payer)->pluck('billname');
+		$amountpaids = DB::table('responsible')->where('username', $payer)->pluck('amountpaid');
+		$totals = DB::table('responsible')->where('username', $payer)->pluck('total');
+		$responsibleid = DB::table('responsible')->where('owner', $stuff->input('username'))->pluck('id');
+		$count = $amountpaids->count();
+
+		echo $count . "<br>";
+		
+		return view('manage', ['username' => $stuff->input('username'), 'message' => ''])->with('test', $test)->with('users', $users)->with('payer', $payer)->with('bills', $bills)->with('amountpaids', $amountpaids)->with('totals', $totals)->with('responsibleid', $responsibleid)->with('count', $count);
 	}
 	public function view(Request $stuff)
 	{
-		//DB::table('users')->where('username', $username)->first();	
-		//$bills[] = dDB::table('bills')->where('')
-		$billrecord = DB::table('bills')->get();
-		$bills;
-		foreach ($billrecord as $bill) {
-			echo $bill->billname;
-			echo "<br>";
-			$bills[] = $bill->billname;
-		}
-		foreach ($bills as $w) {
-			echo $w;
-			echo "<br>";
-		}
-		return view('view', ['username' => $stuff->input('username')])->with('billrecord', $billrecord);
-		//return view('view', ['username' => $stuff->input('username')])->with('bills', $bills);
+		$grass = DB::table('bills')->pluck('billname');
+		return view('view', ['username' => $stuff->input('username')])->with('grass', $grass);
+	}
+	public function viewbill(Request $stuff)
+	{
+		echo "Hey " . $stuff->input('username') . " you chose: ";
+		echo $stuff->input('tough');
+		echo "<br>";	
+		
+		return "Yup";
 	}
 }

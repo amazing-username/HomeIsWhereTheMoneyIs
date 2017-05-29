@@ -25,7 +25,6 @@ height: 30%;
 			<br>
 
 			{!! Form::open(array('action' => 'BillController@create')) !!}
-
 			{{ Form::hidden('username', $username) }}
 			<p>
 			{{ Form::button('create', array('style' => 'height:40%;width:70%', 'type' => 'submit')) }}
@@ -33,7 +32,6 @@ height: 30%;
 			{!! Form::close() !!}
 
 			{!! Form::open(array('action' => 'BillController@manage')) !!}
-
 			{{ Form::hidden('username', $username) }}
 			<p>
 			{{ Form::button('mange', array('style' => 'height:40%;width:70%', 'type' => 'submit')) }}
