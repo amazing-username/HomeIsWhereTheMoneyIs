@@ -48,7 +48,7 @@ height: 30%;
 			</p>
 			{!! Form::close() !!}
 		<div class="jumbotron text-center">
-			<h1>Alright {{ $username }}, here is where you can manage the bills you own bills</h1>
+			<h1>Alright {{ $username }}, here is where you can manage the bills you own</h1>
 			<br><br>
 
 			{!! Form::open(array('action' => 'BillController@managebill')) !!}

@@ -52,13 +52,15 @@ height: 30%;
 
 			{!! Form::open(array('action' => 'BillController@viewbill')) !!}
 			{{ Form::hidden('username', $username) }}
-			<select name='tough'>
-				@foreach ($grass as $record)
-					<option value={{ $record }}>{{ $record }}</option>
-				@endforeach
-			</select>
 			<p>
-			{{ Form::button('view bills', array('style' => 'height:40%;width:70%', 'type' => 'submit')) }}
+				<select name='tough'>
+					@foreach ($grass as $record)
+						<option value={{ $record }}>{{ $record }}</option>
+					@endforeach
+				</select>
+			</p>
+			<p>
+			{{ Form::button('view bills', array('style' => 'height:30%;width:70%', 'type' => 'submit')) }}
 			</p>
 			{!! Form::close() !!}
 			<div>
