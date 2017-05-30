@@ -15,7 +15,8 @@
 		<div class="jumbotron text-center">
 			<h1>HomeIsWhereTheMoneyIs</h1>	
 			<a href="login"><button style="height:40%;width:90%"><h1 style="font-size:1000%">Login</h1></button><br></a>
-			<a href="register"><button style="height:20%;width:50%"><h1 style="font-size:500%">Register</h1></button></a>
+			<br><br>
+			<a href="register"><button style="height:30%;width:90%"><h1 style="font-size:500%">Register</h1></button></a>
 		</div>		
 	</body>
 </html>

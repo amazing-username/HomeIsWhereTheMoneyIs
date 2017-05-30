@@ -12,40 +12,49 @@
 	
 	</head>
 	<body style="background-color:#eee">
+		<div style="background-color:#000000;text-align:center">
+			<a href="/"><h1 style="height:10%;font-size:800%">Home</h1></a>
+		</div>
 		<div class="jumbotron text-center">
-			<h1>Registration Page</h1>
-			<a href="/"><h1>Home</h1></a>
-			<!--
-			<a href="stunt"><button style="height:40%;width:40%"><h1 style="font-size:1000%">Login</h1></button><br></a>
-			<button style="height:20%;width:20%"><h1 style="font-size:500%">Register</h1></button>
-			-->
+			<h1 style="font-size:800%">Registration Page</h1>
+			<br>
 			{{ Form::open(array('action' => 'HomeController@registerUser', 'method' => 'post')) }}
 				<p>
-					{{ Form::label('first name') }}
-					{{ Form::text('firstname') }}	
+					{{ Form::label('firstnamelabel', 'first name', array('style' => 'width:60%;height:20%;font-size:500%')) }}
+					<br>
+					{{ Form::text('firstname', '', array('style' => 'width:70%;height:15%;font-size:500%')) }}	
 				</p>
 				<p>
-					{{ Form::label('last name') }}
-					{{ Form::text('lastname') }}
+					{{ Form::label('lastnamelabel', 'last name', array('style' => 'width:60%;height:20%;font-size:500%')) }}
+					<br>
+					{{ Form::text('lastname', '', array('style' => 'width:70%;height:15%;font-size:500%')) }}
 				</p>
 				<p>
-					{{ Form::label('username') }}
-					{{ Form::text('username') }}	
+					{{ Form::label('usernamelabel', 'username', array('style' => 'width:60%;height:20%;font-size:500%')) }}
+					<br>
+					{{ Form::text('username', '', array('style' => 'width:70%;height:15%;font-size:500%')) }}	
 				</p>
 				<p>
-					{{ Form::label('password') }}
-					{{ Form::password('password') }}
+					{{ Form::label('passwordlabel', 'password', array('style' => 'width:60%;height:20%;font-size:500%')) }}
+					<br>
+					{{ Form::password('password', array('style' => 'width:70%;height:15%;font-size:500%')) }}
 				</p>
 				<p>
-					{{ Form::label('confirm') }}	
-					{{ Form::password('confirm') }}
+					{{ Form::label('confirmlabel', 'confirm', array('style' => 'width:60%;height:20%;font-size:500%')) }}
+					<br>
+					{{ Form::password('confirm', array('style' => 'width:70%;height:15%;font-size:500%')) }}
 				</p>
 				<p>
-					{{ Form::label('roomlabel') }}
-					{{ Form::select('room', array('single' => 'single', 'double' => 'double')) }}
+					{{ Form::label('roomlabel', 'room', array('style' => 'width:60%;height:20%;font-size:500%')) }}
+					<br>
+					<select name="room" style="width:70%;height:20%;font-size:500%">
+						<option>single</option>
+						<option>double</option>
+					</select>
 				</p>
 				<p>
-					{{ Form::submit('register me') }}	
+					<br>
+					{{ Form::submit('register me', array('style' => 'width:70%;height:25%;font-size:500%')) }}	
 				</p>
 			{{ Form::close() }}
 			<h1>{{ $message }}</h1>

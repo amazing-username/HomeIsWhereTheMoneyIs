@@ -22,26 +22,26 @@ height: 30%;
 	<body style="background-color:#eee">
 		<div class="jumbotron text-center">
 			<h1>What's good {{$username}}? it's your home page</h1>	
-			<br>
+			<br><br>
 
 			{!! Form::open(array('action' => 'BillController@create')) !!}
 			{{ Form::hidden('username', $username) }}
 			<p>
-			{{ Form::button('create', array('style' => 'height:40%;width:70%', 'type' => 'submit')) }}
+			{{ Form::button('create', array('style' => 'height:30%;width:80%;font-size:800%', 'type' => 'submit')) }}
 			</p>
 			{!! Form::close() !!}
 
 			{!! Form::open(array('action' => 'BillController@manage')) !!}
 			{{ Form::hidden('username', $username) }}
 			<p>
-			{{ Form::button('mange', array('style' => 'height:40%;width:70%', 'type' => 'submit')) }}
+			{{ Form::button('mange', array('style' => 'height:30%;width:80%;font-size:800%', 'type' => 'submit')) }}
 			</p>
 			{!! Form::close() !!}
 			{!! Form::open(array('action' => 'BillController@view')) !!}
 
 			{{ Form::hidden('username', $username) }}
 			<p>
-			{{ Form::button('view', array('style' => 'height:40%;width:70%', 'type' => 'submit')) }}
+			{{ Form::button('view', array('style' => 'height:30%;width:80%;font-size:800%', 'type' => 'submit')) }}
 			</p>
 			{!! Form::close() !!}
 		</div>		

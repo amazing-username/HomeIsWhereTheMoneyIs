@@ -12,26 +12,28 @@
 	
 	</head>
 	<body style="background-color:#eee">
-		<div class="jumbotron text-center">
-			<h1>Alright {{ $username }}, here is where you can create bills</h1>
 			{!! Form::open(array('action' => 'HomeController@home')) !!}
-
 			{{ Form::hidden('username', $username) }}
 			<p>
-			{{ Form::button('userHome', array('style' => 'height:40%;width:70%', 'type' => 'submit')) }}
+			<div style="background-color:#000000">
+			{{ Form::button('user home', array('style' => 'height:15%;width:100%;font-size:500%;background-color:#000000;color:#eee', 'type' => 'submit')) }}
+			</div>
 			</p>
 			{!! Form::close() !!}
+		<div class="jumbotron text-center">
+			<h1>Alright {{ $username }}, here is where you can create bills</h1>
+			<br>
 
 			{!! Form::open(array('action' => 'BillController@createbill')) !!}
 			{{ Form::hidden('username', $username) }}
 			<p>
-				{{ Form::label('lbl', 'bill name', array('style' => 'font-size:400%')) }}
+				{{ Form::label('lbl', 'bill name', array('style' => 'font-size:500%')) }}
 			</p>
 			<p>
-				{{ Form::text('billname', '', array('style' => 'font-size:400%')) }}
+				{{ Form::text('billname', '', array('style' => 'width:70%;height:15%;font-size:500%')) }}
 			</p>
 			<p>
-			{{ Form::button('Create Bill', array('style' => 'height:40%;width:70%', 'type' => 'submit')) }}
+			{{ Form::button('Create Bill', array('style' => 'height:20%;width:70%;font-size:500%', 'type' => 'submit')) }}
 			</p>
 			{!! Form::close() !!}
 			<h1>{{$message}}</h1>

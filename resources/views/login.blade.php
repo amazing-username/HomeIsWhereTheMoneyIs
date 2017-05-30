@@ -12,21 +12,26 @@
 	
 	</head>
 	<body style="background-color:#eee">
+		<div style="background-color:#000000;text-align:center">
+			<a href="/"><h1 style="height:10%;font-size:800%">Home</h1></a>
+		</div>
 		<div class="jumbotron text-center">
-			<h1>Login Page</h1>
-			<a href="/"><h1>Home</h1></a>
-
+			<h1 style="font-size:800%">Login Page</h1>
+			<br>
 			{{ Form::open(array('action' => 'HomeController@loginUser')) }}
 			<p>
-				{{ Form::label("username") }}
-				{{ Form::text("username") }}
+				{{ Form::label("usernamelabel", 'username', array('style' => 'width:50%;height:20%;font-size:500%')) }}
+				<br>
+				{{ Form::text("username", '', array('style' => 'width:70%;height:15%;font-size:500%')) }}
 			</p>	
 			<p>
-				{{ Form::label("password") }}
-				{{ Form::password("password") }}
+				{{ Form::label("passwordlabel", 'password', array('style' => 'width:50%;height:20%;font-size:500%')) }}
+				<br>
+				{{ Form::password("password", array('style' => 'width:70%;height:15%;font-size:500%')) }}
 			</p>
 			<p>
-				{{ Form::submit("Login maxipad resident") }}
+				<br>
+				{{ Form::submit("Login", array('style' => 'width:70%;height:25%;font-size:500%')) }}
 			</p>
 			{{ Form::close() }}
 			<h1>{{ $message }}</h1>

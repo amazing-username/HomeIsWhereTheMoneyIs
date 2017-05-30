@@ -82,7 +82,6 @@ class BillController extends Controller
 			$cost = DB::table('transactions')->where('responsible', $id)->pluck('cost')->first();
 			$people = DB::table('transactions')->where('responsible', $id)->pluck('people')->first();
 			$full = ($cost * 100) / ($people * 100);
-			$full = $full . "";
 			echo $id . $billname . $payer . $amountpaid . $full . $username;
 			DB::table('responsible')->insert(
 				['id' => $id, 'billname' => $billname, 'username' => $payer, 'amountpaid' => $amountpaid, 'total' => $full, 'owner' => $username]
@@ -106,7 +105,7 @@ class BillController extends Controller
 			}
 		}
 	
-		return view('manage', ['username' => $username, 'message' => $payer . " has been added to the bill"])->with('test', $test)->with('users', $users)->with('payer', '')->with('bills', '')->with('amountpaids', '')->with('totals', '')->with('responsibleid', $responsibleid)->with('count', $count);
+		return view('manage', ['username' => $username, 'message' => $payer . " has been added to the bill"])->with('test', $test)->with('users', $users)->with('payer', '')->with('bills', '')->with('amountpaids', $amountpaids)->with('totals', '')->with('responsibleid', $responsibleid)->with('count', '');
 	}
 	public function calcbill(Request $stuff)
 	{
@@ -119,7 +118,8 @@ class BillController extends Controller
 		$responsibleid = DB::table('responsible')->where('owner', $stuff->input('username'))->pluck('id');
 		$count = $amountpaids->count();
 
-		DB::table('responsible')->where('id', $responsibleid)->update(['amountpaid' => $stuff->input('amountpaid')]);
+		DB::table('responsible')->where('id', $stuff->input('responsibleid'))->update(['amountpaid' => $stuff->input('amountpaid')]);
+		echo $stuff->input('amountpaid') . "<br>";
 
 		return view('manage', ['username' => $stuff->input('username'), 'message' => ''])->with('test', $test)->with('users', $users)->with('payer', $payer)->with('bills', $bills)->with('amountpaids', $amountpaids)->with('totals', $totals)->with('responsibleid', $responsibleid)->with('count', $count);
 	}
@@ -141,17 +141,20 @@ class BillController extends Controller
 	public function view(Request $stuff)
 	{
 		$grass = DB::table('bills')->pluck('billname');
-		return view('view', ['username' => $stuff->input('username')])->with('grass', $grass);
+		return view('view', ['username' => $stuff->input('username')])->with('grass', $grass)->with('billname', '')->with('owner', '')->with('amountpaid', '')->with('total', '');
 	}
 	public function viewbill(Request $stuff)
 	{
 		$grass = DB::table('bills')->pluck('billname');
 		$billchoice = $stuff->input('tough');
-		$bills = DB::table('responsible')->where('billname', $billchoice)->orderBy('id', 'desc');
+		$owner = DB::table('responsible')->orderBy('id', 'desc')->where('username', $stuff->input('username'))->pluck('owner')->first();
+		$amountpaid = DB::table('responsible')->orderBy('id', 'desc')->where('username', $stuff->input('username'))->pluck('amountpaid')->first();
+		$total = DB::table('responsible')->orderBy('id', 'desc')->where('username', $stuff->input('username'))->pluck('total')->first();
+
 		echo "Hey " . $stuff->input('username') . " you chose: ";
 		echo $stuff->input('tough');
 		echo "<br>";	
 		
-		return "Yup";
+		return view('view', ['username' => $stuff->input('username')])->with('grass', $grass)->with('billname', $billchoice)->with('owner', $owner)->with('amountpaid', $amountpaid)->with('total', $total);
 	}
 }
