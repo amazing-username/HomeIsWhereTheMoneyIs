@@ -15,7 +15,7 @@ class PaycheckController extends Controller
 	{
 		$hours = $stuff->input('hours');
 		$payrate = $stuff->input('payrate');
-		$grosspay;
+		$grosspay = $hours * $payrate;
 		$netpay;
 		$fedtax;
 		$statetax;
@@ -31,7 +31,6 @@ class PaycheckController extends Controller
 			return view('paycheck', ['hours' => 'd', 'payrate' => '', 'grosspay' => '', 'netpay' => '', 'fedtax' => '', 'statetax' => '', 'sstax' => '', 'medtax' => '']);
 		}
 
-		$grosspay = $hours * $payrate;
 		if ($grosspay < 87)
 		{
 			$fedtax = 0;
@@ -47,6 +46,10 @@ class PaycheckController extends Controller
 		else if ($grosspay <= 1529 && $grosspay < 3925)
 		{
 			$fedtax = floor(($grosspay - 744.04) * .25 * 100)/100;
+		}
+		else
+		{
+			$fedtax = floor(($grosspay - 1500) * .40 * 100)/100;
 		}
 		
 		$statetax = round($grosspay * .0375 * 100)/100;
