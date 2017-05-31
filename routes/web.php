@@ -34,3 +34,5 @@ Route::get('hotboy', function () {
 Route::get('stunt', function () {
 	return "Check the database, I think someone was created";
 });
+Route::get('paycheck', 'PaycheckController@display');
+Route::post('paycheck/biweekly', 'PaycheckController@results');
