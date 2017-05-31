@@ -12,9 +12,11 @@
 	
 	</head>
 	<body style="background-color:#eee">
+		<div style="background-color:#000000;text-align:center">
+			<a href="/"><h1 style="height:10%;font-size:800%">Home</h1></a>
+		</div>
 		<div class="jumbotron text-center">
 			<h1>Alright {{ $username }}, your account has been created</h1>
-			<a href="/"><h1>Home</h1></a>
 		</div>		
 	</body>
 </html>
