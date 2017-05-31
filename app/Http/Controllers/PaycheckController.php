@@ -9,7 +9,7 @@ class PaycheckController extends Controller
     //
 	public function display()
 	{
-		return view('paycheck', ['hours' => '', 'payrate' => '', 'grosspay' => '', 'netpay' => '', 'fedtax' => '', 'statetax' => '', 'sstax' => '', 'medtax' => '']);
+		return view('paycheck', ['hours' => 'empt', 'payrate' => '', 'grosspay' => '', 'netpay' => '', 'fedtax' => '', 'statetax' => '', 'sstax' => '', 'medtax' => '']);
 	}
 	public function results(Request $stuff)
 	{

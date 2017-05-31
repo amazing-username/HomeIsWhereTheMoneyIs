@@ -62,7 +62,7 @@ height: 30%;
 					{{ Form::button('do it', array('type' => 'submit')) }}
 				</p>
 			{!! Form::close() !!}
-			@if ($hours!=='d')
+			@if ($hours!=='empt' &&  $hours!=='d')
 				<label style="font-size:500%">Hours: {{ $hours }}</label>
 				<br>
 				<label>Pay rate: {{ $payrate }}</label>
