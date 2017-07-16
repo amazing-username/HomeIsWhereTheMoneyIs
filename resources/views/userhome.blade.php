@@ -9,39 +9,31 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<style type="text/css">	
-		.test
-{
-height: 30%;
-}
-		.test2 {
-			height:50%;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="http://108.255.70.130/css/scc.css">
 	</head>
-	<body style="background-color:#eee">
-		<div class="jumbotron text-center">
+	<body>
+		<div class="jumbotron text-center maincontentarea">
 			<h1>What's good {{$username}}? it's your home page</h1>	
 			<br><br>
 
 			{!! Form::open(array('action' => 'BillController@create')) !!}
 			{{ Form::hidden('username', $username) }}
 			<p>
-			{{ Form::button('create', array('style' => 'height:30%;width:80%;font-size:800%', 'type' => 'submit')) }}
+			{{ Form::button('create', array('class' => 'createsection', 'type' => 'submit')) }}
 			</p>
 			{!! Form::close() !!}
 
 			{!! Form::open(array('action' => 'BillController@manage')) !!}
 			{{ Form::hidden('username', $username) }}
 			<p>
-			{{ Form::button('mange', array('style' => 'height:30%;width:80%;font-size:800%', 'type' => 'submit')) }}
+			{{ Form::button('mange', array('class' => 'managesection', 'type' => 'submit')) }}
 			</p>
 			{!! Form::close() !!}
 			{!! Form::open(array('action' => 'BillController@view')) !!}
 
 			{{ Form::hidden('username', $username) }}
 			<p>
-			{{ Form::button('view', array('style' => 'height:30%;width:80%;font-size:800%', 'type' => 'submit')) }}
+			{{ Form::button('view', array('class' => 'viewsection', 'type' => 'submit')) }}
 			</p>
 			{!! Form::close() !!}
 		</div>		

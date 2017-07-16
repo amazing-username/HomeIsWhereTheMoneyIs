@@ -1,0 +1,178 @@
+body {
+	background-color: #cce6ff;
+
+}
+table {
+	font-size: 300%;
+	width: 100%;
+}
+div.logomaxipad {
+	background-color: #dedede;
+	text-align: center;
+	font-size: 100%;
+	height: 15%;
+}
+div.maincontentarea {
+
+	background-color: inherit;
+}
+div.paycheckcalculatorresults {
+	background-color: orange;
+}
+div.addpeoplesection {
+	background-color: #e6e6e6;
+}
+div.managebill {
+	background-color: #a6a6a6;
+}
+div.debtors {
+	background-color: #666666;
+}
+h1 {
+	font-size: 1000%;
+}
+button {
+	border: transparent;
+	height: 30%;
+	width: 90%;
+	font-size: 500%;
+}
+button.createsection {
+	background-color: #33ffff;
+	color: #ffffff;
+	font-size: 500%;
+}
+button.managesection {
+	background-color: #33ffff;
+	color: #ffffff;
+	font-size: 500%;
+}
+button.viewsection {
+	background-color: #33ffff;
+	color: #ffffff;
+	font-size: 500%;
+}
+button.loginmaxipad {
+	background-color: aqua;
+	color: white;
+}
+button.registermaxipad {
+	background-color: #33ffff;
+	color: white;
+}
+button.paycheckcalculator {
+	background-color: #66ffff;
+	color: white;
+	width: 90%;
+	height: 40%;
+	font-size: 700%;
+}
+button.paycheckcalculatoraction {
+	background-color: #66ffff;
+	color: white;
+	width: 70%;
+	height: 25%;
+	font-size: 600%;
+}
+button.userhome {
+	height: 15%;
+	width: 100%;
+	font-size: 500%;
+	background-color: #0000ff;
+	color: #99ccff;
+}
+button.createbill {
+	background-color: #66ffff;
+	color: #ffffff;
+	width: 70%;
+}
+button.createbillmonthamount {
+	font-size: 250%;
+	background-color: #66ffff;
+	color: #ffffff;
+	width: 70%;
+	height: 25%;
+}
+button.addpeople {
+	background-color: #66ffff;
+	color: #ffffff;
+	font-size: 450%;
+	width: 70%;
+	height: 25%;
+}
+button.managebill {
+	background-color: #66ffff;
+	color: #ffffff;
+	font-size: 450%;
+	width: 70%;
+	height: 25%;
+}
+button.viewdebtors {
+	background-color: #66ffff;
+	color: #ffffff;
+	font-size: 450%;
+	width: 70%;
+	height: 25%;
+}
+button.viewdebts {
+	background-color: #66ffff;
+	color: #ffffff;
+	font-size: 450%;
+	width: 70%;
+	height: 25%;
+}
+h1.logomaxipad {
+	background-color: #0000ff;
+	color: #99ccff;
+	text-align: center;
+}
+h1.sectiontitle {
+	font-size: 650%;
+}
+h1.loginmaxipad {
+	font-size: 700%;
+}
+h1.registermaxipad {
+	font-size: 700%;
+}
+h1.addbillmonthsection {
+	background-color: white;
+}
+h1.addpeoplesection {
+	background-color: #e6e6e6;
+}
+label {
+	font-size: 500%;
+}
+input {
+	width: 70%;
+	height: 20%;
+	font-size: 450%;
+}
+table.paycheckcalculator {
+
+}
+select {
+	width: 70%;
+	height: 20%;
+	font-size: 450%;
+}
+select.registeraccounttype {
+	width: 70%;
+	height: 20%;
+	font-size: 450%;
+}
+input.registeraccount {
+	width: 70%;	
+	border: transparent;
+	background-color: #66ffff;
+	color: #ffffff;
+	font-size: 500%;
+}
+input.loginaccount {
+	width: 70%;
+	border: transparent;
+	background-color: #66ffff;
+	color: #ffffff;
+	font-size: 500%;
+}	

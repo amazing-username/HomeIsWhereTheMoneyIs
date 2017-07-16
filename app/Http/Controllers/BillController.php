@@ -134,8 +134,6 @@ class BillController extends Controller
 		$responsibleid = DB::table('responsible')->where('owner', $stuff->input('username'))->pluck('id');
 		$count = $amountpaids->count();
 
-		echo $count . "<br>";
-		
 		return view('manage', ['username' => $stuff->input('username'), 'message' => ''])->with('test', $test)->with('users', $users)->with('payer', $payer)->with('bills', $bills)->with('amountpaids', $amountpaids)->with('totals', $totals)->with('responsibleid', $responsibleid)->with('count', $count);
 	}
 	public function view(Request $stuff)

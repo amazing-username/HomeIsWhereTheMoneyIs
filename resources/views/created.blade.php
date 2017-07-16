@@ -9,13 +9,14 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="http://108.255.70.130/css/scc.css">
 	
 	</head>
-	<body style="background-color:#eee">
-		<div style="background-color:#000000;text-align:center">
-			<a href="/"><h1 style="height:10%;font-size:800%">Home</h1></a>
+	<body>
+		<div>
+			<a href="/"><h1 class="logomaxipad">Home</h1></a>
 		</div>
-		<div class="jumbotron text-center">
+		<div class="jumbotron text-center maincontentarea">
 			<h1>Alright {{ $username }}, your account has been created</h1>
 		</div>		
 	</body>

@@ -9,48 +9,23 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<style type="text/css">	
-		.test
-{
-height: 30%;
-}
-		.test2 {
-			height:50%;
-		}
-		input {
-			width:70%;
-			height:20%;
-			font-size:500%;
-}
-		select {
-			width:70%;
-			height:20%;
-			font-size:500%;
-}
-		label {
-			font-size:500%;
-}
-		button {
-			width:70%;
-			height:20%;
-			font-size:500%;
-}
-	</style>
+	<link rel="stylesheet" type="text/css" href="http://108.255.70.130/css/scc.css">
 	
 	</head>
-	<body style="background-color:#eee">
+	<body>
 			{!! Form::open(array('action' => 'HomeController@home')) !!}
 			{{ Form::hidden('username', $username) }}
 			<p>
-			<div style="background-color:#000000">
-			{{ Form::button('user home', array('style' => 'height:15%;width:100%;font-size:500%;background-color:#000000;color:#eee', 'type' => 'submit')) }}
+			<div>
+			{{ Form::button('user home', array('class' => 'userhome', 'type' => 'submit')) }}
 			</div>
 			</p>
 			{!! Form::close() !!}
-		<div class="jumbotron text-center">
+		<div class="jumbotron text-center maincontentarea">
 			<h1>Alright {{ $username }}, here is where you can manage the bills you own</h1>
 			<br><br>
 
+			<div><h1 class="addbillmonthsection">
 			{!! Form::open(array('action' => 'BillController@managebill')) !!}
 			{{ Form::hidden('username', $username) }}
 			<br>
@@ -58,36 +33,38 @@ height: 30%;
 				{{ Form::label('billnamelabel', 'billname', array('style' => 'font-size:500%'))}}
 			</p>
 			<p>
-			<select name="billname" style="width:70%;height:20%;font-size:500%">
+			<select name="billname">
 				@foreach ($test as $bax)
 					<option value={{ $bax }}>{{ $bax }}</option>
 				@endforeach
 			</select>
 			</p>
 			<p>
-			{{ Form::label('datelabel', "enter date in yyyymm", array('style' => 'font-size:500%')) }}
+			{{ Form::label('datelabel', "enter date in yyyymm") }}
 			</p>
 			<p>
-			{{ Form::text('date', '', array('style' => 'width:70%;height:15%;font-size:500%')) }}
+			{{ Form::text('date', '') }}
 			</p>
 			<p>
-			{{ Form::label('totallabel', 'total bill amount', array('style' => 'font-size:500%')) }}
+			{{ Form::label('totallabel', 'total bill amount') }}
 			</p>
 			<p>
-			{{ Form::text('total', '', array('style' => 'width:70%;height:15%;font-size:500%')) }}
+			{{ Form::text('total', '') }}
 			</p>
 			<p>
-			{{ Form::label('eachlabel', 'how many people', array('style' => 'font-size:500%')) }}
+			{{ Form::label('eachlabel', 'how many people') }}
 			</p>
 			<p>
-			{{ Form::text('each', '', array('style' => 'width:70%;height:15%;font-size:500%')) }}
+			{{ Form::text('each', '') }}
 			</p>
-			{{ Form::button('add bill', array('style' => 'height:30%;width:70%;font-size:500%', 'type' => 'submit')) }}
+			{{ Form::button('add bill', array('class' => 'createbillmonthamount', 'type' => 'submit')) }}
+			<br><br>
+			<h1>{{ $message }}</h1>
 			</p>
 			{!! Form::close() !!}
-			<h1>{{ $message }}</h1>
-
-			<div>
+			</h1>
+			</div>
+			<div class="addpeoplesection">
 				<br><br>
 				<h1>Add people to the bill</h1>
 				{!! Form::open(array('action' => 'BillController@addpeople')) !!}
@@ -96,7 +73,7 @@ height: 30%;
 					{{ Form::label('billnamelbl', 'billname') }}
 				</p>
 				<p>
-					<select name="billname" style="width:70%;height:20%;font-size:500%">
+					<select name="billname">
 						@foreach ($test as $bax)
 							<option value={{ $bax }}>{{ $bax  }}</option>
 						@endforeach
@@ -124,13 +101,13 @@ height: 30%;
 				<p>
 					{{ Form::text('amountpaid') }}
 				</p>
-
 				<p>
-					{{ Form::button('add payer', array('style' => '', 'type' => 'submit')) }}
+					{{ Form::button('add payer', array('class' => 'addpeople', 'type' => 'submit')) }}
+				<br><br>
 				</p>
 				{!! Form::close() !!}
 			</div>
-			<div>
+			<div class="managebill">
 				<br><br>
 				<h1>Manage a bill</h1>
 				{!! Form::open(array('action' => 'BillController@calcbill')) !!}
@@ -172,11 +149,12 @@ height: 30%;
 					{{ Form::text('amountpaid') }}
 				</p>
 				<p>
-					{{ Form::button('update payer', array('style' => '', 'type' => 'submit')) }}
+					{{ Form::button('update payer', array('class' => 'managebill', 'type' => 'submit')) }}
+				<br><br>
 				</p>
 				{!! Form::close() !!}
 			</div>
-			<div>
+			<div class="debtors">
 				<br><br>
 				<h1>Who owes you cash</h1>
 				{!! Form::open(array('action' => 'BillController@debt')) !!}	
@@ -192,7 +170,7 @@ height: 30%;
 					</select>
 				</p>
 				<p>
-					{{ Form::button('check', array('style' => '', 'type' => 'submit')) }}
+					{{ Form::button('check', array('class' => 'viewdebtors', 'type' => 'submit')) }}
 				</p>
 				{!! Form::close() !!}
 				{{ $empt = isset($payer) }}
@@ -200,7 +178,7 @@ height: 30%;
 					nothing
 				@endif
 				@if ($empt)
-					<table style="width:100%;font-size:300%">
+					<table>
 						<tr>
 							<td>Payer</td>
 							<td>Billname</td>

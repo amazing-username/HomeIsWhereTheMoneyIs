@@ -9,52 +9,53 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="http://108.255.70.130/css/scc.css">
 	
 	</head>
-	<body style="background-color:#eee">
-		<div style="background-color:#000000;text-align:center">
-			<a href="/"><h1 style="height:10%;font-size:800%">Home</h1></a>
+	<body>
+		<div>
+			<a href="/"><h1 class="logomaxipad">Home</h1></a>
 		</div>
-		<div class="jumbotron text-center">
-			<h1 style="font-size:800%">Registration Page</h1>
+		<div class="jumbotron text-center maincontentarea">
+			<h1 class="sectiontitle">Registration Page</h1>
 			<br>
 			{{ Form::open(array('action' => 'HomeController@registerUser', 'method' => 'post')) }}
 				<p>
-					{{ Form::label('firstnamelabel', 'first name', array('style' => 'width:60%;height:20%;font-size:500%')) }}
+					{{ Form::label('firstnamelabel', 'first name') }}
 					<br>
-					{{ Form::text('firstname', '', array('style' => 'width:70%;height:15%;font-size:500%')) }}	
+					{{ Form::text('firstname', '') }}	
 				</p>
 				<p>
-					{{ Form::label('lastnamelabel', 'last name', array('style' => 'width:60%;height:20%;font-size:500%')) }}
+					{{ Form::label('lastnamelabel', 'last name') }}
 					<br>
-					{{ Form::text('lastname', '', array('style' => 'width:70%;height:15%;font-size:500%')) }}
+					{{ Form::text('lastname', '') }}
 				</p>
 				<p>
-					{{ Form::label('usernamelabel', 'username', array('style' => 'width:60%;height:20%;font-size:500%')) }}
+					{{ Form::label('usernamelabel', 'username') }}
 					<br>
-					{{ Form::text('username', '', array('style' => 'width:70%;height:15%;font-size:500%')) }}	
+					{{ Form::text('username', '') }}	
 				</p>
 				<p>
-					{{ Form::label('passwordlabel', 'password', array('style' => 'width:60%;height:20%;font-size:500%')) }}
+					{{ Form::label('passwordlabel', 'password') }}
 					<br>
-					{{ Form::password('password', array('style' => 'width:70%;height:15%;font-size:500%')) }}
+					{{ Form::password('password') }}
 				</p>
 				<p>
-					{{ Form::label('confirmlabel', 'confirm', array('style' => 'width:60%;height:20%;font-size:500%')) }}
+					{{ Form::label('confirmlabel', 'confirm') }}
 					<br>
-					{{ Form::password('confirm', array('style' => 'width:70%;height:15%;font-size:500%')) }}
+					{{ Form::password('confirm') }}
 				</p>
 				<p>
-					{{ Form::label('roomlabel', 'room', array('style' => 'width:60%;height:20%;font-size:500%')) }}
+					{{ Form::label('roomlabel', 'room') }}
 					<br>
-					<select name="room" style="width:70%;height:20%;font-size:500%">
+					<select name="room" class="registeraccounttype">
 						<option>single</option>
 						<option>double</option>
 					</select>
 				</p>
 				<p>
 					<br>
-					{{ Form::submit('register me', array('style' => 'width:70%;height:25%;font-size:500%')) }}	
+					{{ Form::submit('register me', array('class' => 'registeraccount')) }}	
 				</p>
 			{{ Form::close() }}
 			<h1>{{ $message }}</h1>

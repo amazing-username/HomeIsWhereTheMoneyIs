@@ -9,45 +9,19 @@
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<style type="text/css">	
-		.test
-{
-height: 30%;
-}
-		.test2 {
-			height:50%;
-		}
-		input {
-			width:70%;
-			height:20%;
-			font-size:500%;
-}
-		select {
-			width:70%;
-			height:20%;
-			font-size:500%;
-}
-		label {
-			font-size:500%;
-}
-		button {
-			width:70%;
-			height:20%;
-			font-size:500%;
-}
-	</style>
+	<link rel="stylesheet" type="text/css" href="http://108.255.70.130/css/scc.css">
 	
 	</head>
-	<body style="background-color:#eee">
+	<body>
 			{!! Form::open(array('action' => 'HomeController@home')) !!}
 			{{ Form::hidden('username', $username) }}
 			<p>
-			<div style="background-color:#000000">
-			{{ Form::button('user home', array('style' => 'height:15%;width:100%;font-size:500%;background-color:#000000;color:#eee', 'type' => 'submit')) }}
+			<div>
+			{{ Form::button('user home', array('class' => 'userhome', 'type' => 'submit')) }}
 			</div>
 			</p>
 			{!! Form::close() !!}
-		<div class="jumbotron text-center">
+		<div class="jumbotron text-center maincontentarea">
 			<h1>Alright {{ $username }}, here is where you can view bills that you need to pay...</h1>
 
 			{!! Form::open(array('action' => 'BillController@viewbill')) !!}
@@ -60,11 +34,11 @@ height: 30%;
 				</select>
 			</p>
 			<p>
-			{{ Form::button('view bills', array('style' => 'height:30%;width:70%', 'type' => 'submit')) }}
+			{{ Form::button('view bills', array('class' => 'viewdebts', 'type' => 'submit')) }}
 			</p>
 			{!! Form::close() !!}
 			<div>
-				<table style="width:100%;font-size:300%">
+				<table>
 					<tr>
 						<th>bill name</th>
 						<th>amount paid</th>

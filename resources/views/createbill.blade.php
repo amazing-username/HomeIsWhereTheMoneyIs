@@ -9,31 +9,32 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="http://108.255.70.130/css/scc.css">
 	
 	</head>
-	<body style="background-color:#eee">
+	<body>
 			{!! Form::open(array('action' => 'HomeController@home')) !!}
 			{{ Form::hidden('username', $username) }}
 			<p>
-			<div style="background-color:#000000">
-			{{ Form::button('user home', array('style' => 'height:15%;width:100%;font-size:500%;background-color:#000000;color:#eee', 'type' => 'submit')) }}
+			<div>
+			{{ Form::button('user home', array('class' => 'userhome', 'type' => 'submit')) }}
 			</div>
 			</p>
 			{!! Form::close() !!}
-		<div class="jumbotron text-center">
+			<div class="jumbotron text-center maincontentarea">
 			<h1>Alright {{ $username }}, here is where you can create bills</h1>
 			<br>
 
 			{!! Form::open(array('action' => 'BillController@createbill')) !!}
 			{{ Form::hidden('username', $username) }}
 			<p>
-				{{ Form::label('lbl', 'bill name', array('style' => 'font-size:500%')) }}
+				{{ Form::label('lbl', 'bill name') }}
 			</p>
 			<p>
-				{{ Form::text('billname', '', array('style' => 'width:70%;height:15%;font-size:500%')) }}
+				{{ Form::text('billname', '') }}
 			</p>
 			<p>
-			{{ Form::button('Create Bill', array('style' => 'height:20%;width:70%;font-size:500%', 'type' => 'submit')) }}
+			{{ Form::button('Create Bill', array('class' => 'createbill', 'type' => 'submit')) }}
 			</p>
 			{!! Form::close() !!}
 			<h1>{{$message}}</h1>

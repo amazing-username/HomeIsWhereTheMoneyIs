@@ -9,41 +9,14 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<style type="text/css">	
-		.test
-{
-height: 30%;
-}
-		.test2 {
-			height:50%;
-		}
-		input {
-			width:70%;
-			height:20%;
-			font-size:500%;
-}
-		select {
-			width:70%;
-			height:20%;
-			font-size:500%;
-}
-		label {
-			font-size:500%;
-}
-		button {
-			width:70%;
-			height:20%;
-			font-size:500%;
-}
-	</style>
-	
+	<link rel="stylesheet" type="text/css" href="http://108.255.70.130/css/scc.css">
 	</head>
-	<body style="background-color:#eee">
-		<div style="background-color:#000000;text-align:center">
-			<a href="/"><h1 style="height:10%;font-size:800%">Home</h1></a>
+	<body>
+		<div class>
+			<a href="/"><h1 class="logomaxipad">Home</h1></a>
 		</div>
-		<div class="jumbotron text-center">
-			<h1>Bi-weekly paycheck calculator</h1>	
+		<div class="jumbotron text-center maincontentarea">
+			<h1 class="sectiontitle">Bi-weekly paycheck calculator</h1>	
 			<br><br>
 			{!! Form::open(array('action' => 'PaycheckController@results')) !!}
 				<p>
@@ -59,11 +32,13 @@ height: 30%;
 					{{ Form::text('payrate') }}
 				</p>
 				<p>
-					{{ Form::button('do it', array('type' => 'submit')) }}
+					{{ Form::button('do it', array('type' => 'submit', 'class' => 'paycheckcalculatoraction')) }}
 				</p>
 			{!! Form::close() !!}
+			<div class="paycheckcalculatorresults">
+			<table class="paycheckcalculatorresults">
 			@if ($hours!=='empt' &&  $hours!=='d')
-				<label style="font-size:500%">Hours: {{ $hours }}</label>
+				<label>Hours: {{ $hours }}</label>
 				<br>
 				<label>Pay rate: {{ $payrate }}</label>
 				<br>
@@ -83,6 +58,8 @@ height: 30%;
 			@if ($hours==='d')
 				<h1>Remember to fill in all the fields</h1>
 			@endif	
+			</table>
+			</div>
 		</div>		
 	</body>
 </html>
