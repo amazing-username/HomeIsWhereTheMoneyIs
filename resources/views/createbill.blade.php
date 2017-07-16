@@ -38,6 +38,7 @@
 			</p>
 			{!! Form::close() !!}
 			<h1>{{$message}}</h1>
+			<button class="logout"><a href="/">log out</a></button>
 		</div>		
 	</body>
 </html>

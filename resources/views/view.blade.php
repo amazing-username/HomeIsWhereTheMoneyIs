@@ -53,6 +53,7 @@
 					</tr>
 				</table>
 			</div>
+			<button class="logout"><a href="/">log out</a></button>
 		</div>		
 	</body>
 </html>

@@ -36,6 +36,7 @@
 			{{ Form::button('view', array('class' => 'viewsection', 'type' => 'submit')) }}
 			</p>
 			{!! Form::close() !!}
+			<button class="logout"><a href="/">log out</a></button>
 		</div>		
 	</body>
 </html>
