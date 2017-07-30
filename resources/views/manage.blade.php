@@ -13,56 +13,54 @@
 	
 	</head>
 	<body>
-			{!! Form::open(array('action' => 'HomeController@home')) !!}
-			{{ Form::hidden('username', $username) }}
-			<p>
+		{!! Form::open(array('action' => 'HomeController@home')) !!}
+		{{ Form::hidden('username', $username) }}
+		<p>
 			<div>
-			{{ Form::button('user home', array('class' => 'userhome', 'type' => 'submit')) }}
+				{{ Form::button('user home', array('class' => 'userhome', 'type' => 'submit')) }}
 			</div>
-			</p>
-			{!! Form::close() !!}
+		</p>
+		{!! Form::close() !!}
 		<div class="jumbotron text-center maincontentarea">
 			<h1>Alright {{ $username }}, here is where you can manage the bills you own</h1>
 			<br><br>
-
-			<div><h1 class="addbillmonthsection">
-			{!! Form::open(array('action' => 'BillController@managebill')) !!}
-			{{ Form::hidden('username', $username) }}
-			<br>
-			<p>
-				{{ Form::label('billnamelabel', 'billname', array('style' => 'font-size:500%'))}}
-			</p>
-			<p>
-			<select name="billname">
-				@foreach ($test as $bax)
-					<option value={{ $bax }}>{{ $bax }}</option>
-				@endforeach
-			</select>
-			</p>
-			<p>
-			{{ Form::label('datelabel', "enter date in yyyymm") }}
-			</p>
-			<p>
-			{{ Form::text('date', '') }}
-			</p>
-			<p>
-			{{ Form::label('totallabel', 'total bill amount') }}
-			</p>
-			<p>
-			{{ Form::text('total', '') }}
-			</p>
-			<p>
-			{{ Form::label('eachlabel', 'how many people') }}
-			</p>
-			<p>
-			{{ Form::text('each', '') }}
-			</p>
-			{{ Form::button('add bill', array('class' => 'createbillmonthamount', 'type' => 'submit')) }}
-			<br><br>
-			<h1>{{ $message }}</h1>
-			</p>
-			{!! Form::close() !!}
-			</h1>
+			<div>
+				<h1 class="addbillmonthsection">
+				{!! Form::open(array('action' => 'BillController@managebill')) !!}
+				{{ Form::hidden('username', $username) }}
+				<br>
+				<p>
+					{{ Form::label('billnamelabel', 'billname', array('style' => 'font-size:500%'))}}
+				</p>
+				<p>
+					<select name="billname">
+					@foreach ($test as $bax)
+						<option value={{ $bax }}>{{ $bax }}</option>
+					@endforeach
+					</select>
+				</p>
+				<p>
+					{{ Form::label('datelabel', "enter date in yyyymm") }}
+				</p>
+				<p>
+					{{ Form::text('date', '') }}
+				</p>
+				<p>
+					{{ Form::label('totallabel', 'total bill amount') }}
+				</p>
+				<p>
+					{{ Form::text('total', '') }}
+				</p>
+				<p>
+					{{ Form::label('eachlabel', 'how many people') }}
+				</p>
+				<p>
+					{{ Form::text('each', '') }}
+				</p>
+				{{ Form::button('add bill', array('class' => 'createbillmonthamount', 'type' => 'submit')) }}
+				<br><br>
+				<h1>{{ $message }}</h1>
+				{!! Form::close() !!}
 			</div>
 			<div class="addpeoplesection">
 				<br><br>
@@ -74,9 +72,9 @@
 				</p>
 				<p>
 					<select name="billname">
-						@foreach ($test as $bax)
-							<option value={{ $bax }}>{{ $bax  }}</option>
-						@endforeach
+					@foreach ($test as $bax)
+						<option value={{ $bax }}>{{ $bax  }}</option>
+					@endforeach
 					</select>
 				</p>
 				<p>
@@ -84,9 +82,9 @@
 				</p>
 				<p>
 					<select name="payer">
-						@foreach ($users as $cax)
-							<option value={{ $cax }}>{{ $cax }}</option>
-						@endforeach
+					@foreach ($users as $cax)
+						<option value={{ $cax }}>{{ $cax }}</option>
+					@endforeach
 					</select>
 				</p>
 				<p>
@@ -117,9 +115,9 @@
 				</p>
 				<p>
 					<select name="billname">
-						@foreach ($test as $bax)
-							<option value={{ $bax }}>{{ $bax  }}</option>
-						@endforeach
+					@foreach ($test as $bax)
+						<option value={{ $bax }}>{{ $bax  }}</option>
+					@endforeach
 					</select>
 				</p>
 				<p>
@@ -127,9 +125,9 @@
 				</p>
 				<p>
 					<select name="payer">
-						@foreach ($users as $cax)
-							<option value={{ $cax }}>{{ $cax }}</option>
-						@endforeach
+					@foreach ($users as $cax)
+						<option value={{ $cax }}>{{ $cax }}</option>
+					@endforeach
 					</select>
 				</p>
 				<p>
@@ -137,9 +135,9 @@
 				</p>
 				<p>
 					<select name="responsibleid">
-						@foreach ($responsibleid as $dax)
-							<option value={{ $dax }}>{{ $dax }}</option>
-						@endforeach
+					@foreach ($responsibleid as $dax)
+						<option value={{ $dax }}>{{ $dax }}</option>
+					@endforeach
 					</select>
 				</p>
 				<p>
@@ -164,9 +162,9 @@
 				</p>
 				<p>	
 					<select name="payer">
-						@foreach ($users as $cax)
-							<option value={{ $cax }}>{{ $cax }}</option>
-						@endforeach
+					@foreach ($users as $cax)
+						<option value={{ $cax }}>{{ $cax }}</option>
+					@endforeach
 					</select>
 				</p>
 				<p>

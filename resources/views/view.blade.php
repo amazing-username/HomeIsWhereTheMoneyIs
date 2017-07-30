@@ -13,14 +13,14 @@
 	
 	</head>
 	<body>
-			{!! Form::open(array('action' => 'HomeController@home')) !!}
-			{{ Form::hidden('username', $username) }}
-			<p>
+		{!! Form::open(array('action' => 'HomeController@home')) !!}
+		{{ Form::hidden('username', $username) }}
+		<p>
 			<div>
-			{{ Form::button('user home', array('class' => 'userhome', 'type' => 'submit')) }}
+				{{ Form::button('user home', array('class' => 'userhome', 'type' => 'submit')) }}
 			</div>
-			</p>
-			{!! Form::close() !!}
+		</p>
+		{!! Form::close() !!}
 		<div class="jumbotron text-center maincontentarea">
 			<h1>Alright {{ $username }}, here is where you can view bills that you need to pay...</h1>
 
@@ -28,9 +28,9 @@
 			{{ Form::hidden('username', $username) }}
 			<p>
 				<select name='tough'>
-					@foreach ($grass as $record)
-						<option value={{ $record }}>{{ $record }}</option>
-					@endforeach
+				@foreach ($grass as $record)
+					<option value={{ $record }}>{{ $record }}</option>
+				@endforeach
 				</select>
 			</p>
 			<p>
@@ -45,12 +45,14 @@
 						<th>total</th>
 						<th>owner</th>
 					</tr>
+					@for ($index=0; $index< $count ; $index++) 
 					<tr>
-						<td>{{ $billname }}</td>
-						<td>{{ $amountpaid }}</td>
-						<td>{{ $total }}</td>
-						<td>{{ $owner }}</td>
+						<td>{{ $billname }} </td>
+						<td>{{ $amountpaid[$index] }}</td>
+						<td>{{ $total[$index] }}</td>
+						<td>{{ $owner[$index] }} </td>
 					</tr>
+					@endfor
 				</table>
 			</div>
 			<button class="logout"><a href="/">log out</a></button>

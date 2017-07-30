@@ -13,18 +13,16 @@
 	
 	</head>
 	<body>
-			{!! Form::open(array('action' => 'HomeController@home')) !!}
-			{{ Form::hidden('username', $username) }}
-			<p>
+		{!! Form::open(array('action' => 'HomeController@home')) !!}
+		{{ Form::hidden('username', $username) }}
+		<p>
 			<div>
-			{{ Form::button('user home', array('class' => 'userhome', 'type' => 'submit')) }}
+				{{ Form::button('user home', array('class' => 'userhome', 'type' => 'submit')) }}
 			</div>
-			</p>
-			{!! Form::close() !!}
-			<div class="jumbotron text-center maincontentarea">
-			<h1>Alright {{ $username }}, here is where you can create bills</h1>
-			<br>
-
+		</p>
+		{!! Form::close() !!}
+		<div class="jumbotron text-center maincontentarea">
+			<h1>Alright {{ $username }}, here is where you can create bills</h1><br>
 			{!! Form::open(array('action' => 'BillController@createbill')) !!}
 			{{ Form::hidden('username', $username) }}
 			<p>
@@ -34,7 +32,7 @@
 				{{ Form::text('billname', '') }}
 			</p>
 			<p>
-			{{ Form::button('Create Bill', array('class' => 'createbill', 'type' => 'submit')) }}
+				{{ Form::button('Create Bill', array('class' => 'createbill', 'type' => 'submit')) }}
 			</p>
 			{!! Form::close() !!}
 			<h1>{{$message}}</h1>

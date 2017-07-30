@@ -13,27 +13,25 @@
 	</head>
 	<body>
 		<div class="jumbotron text-center maincontentarea">
-			<h1>What's good {{$username}}? it's your home page</h1>	
+			<h1>Hey {{$username}}, how is it going? it's your home page</h1>	
 			<br><br>
-
 			{!! Form::open(array('action' => 'BillController@create')) !!}
 			{{ Form::hidden('username', $username) }}
 			<p>
-			{{ Form::button('create', array('class' => 'createsection', 'type' => 'submit')) }}
+				{{ Form::button('create', array('class' => 'createsection', 'type' => 'submit')) }}
 			</p>
 			{!! Form::close() !!}
 
 			{!! Form::open(array('action' => 'BillController@manage')) !!}
 			{{ Form::hidden('username', $username) }}
 			<p>
-			{{ Form::button('mange', array('class' => 'managesection', 'type' => 'submit')) }}
+				{{ Form::button('mange', array('class' => 'managesection', 'type' => 'submit')) }}
 			</p>
 			{!! Form::close() !!}
 			{!! Form::open(array('action' => 'BillController@view')) !!}
-
 			{{ Form::hidden('username', $username) }}
 			<p>
-			{{ Form::button('view', array('class' => 'viewsection', 'type' => 'submit')) }}
+				{{ Form::button('view', array('class' => 'viewsection', 'type' => 'submit')) }}
 			</p>
 			{!! Form::close() !!}
 			<button class="logout"><a href="/">log out</a></button>
